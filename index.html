@@ -67,14 +67,21 @@
     }
     
     .logo-area {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
       border: 2px solid var(--accent);
       border-radius: 8px;
       background: rgba(88, 166, 255, 0.1);
+      overflow: hidden;
+    }
+    
+    .logo-area img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     
     .logo {
@@ -1780,6 +1787,7 @@
   </script>
 </body>
 </html>
+
 
 
 
