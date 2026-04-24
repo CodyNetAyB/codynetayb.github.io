@@ -60,6 +60,23 @@
       padding: 1rem 0;
     }
     
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .logo-area {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      background: rgba(88, 166, 255, 0.1);
+    }
+    
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
@@ -1227,7 +1244,12 @@
   <header>
     <div class="container">
       <nav>
-        <div class="logo">SysTeck</div>
+        <div class="header-content">
+          <div class="logo-area">
+            <img src="img/logo/logo.png" alt="CodyNet A&B Logo">
+          </div>
+          <div class="logo">SysTeck</div>
+        </div>
         <ul class="nav-links" id="navLinks">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#sobre-mi">Sobre Mí</a></li>
@@ -1328,7 +1350,7 @@
               <h4>Aplicaciones Web y Empresariales</h4>
               <p>Inicio con C# y ASP.NET para desarrollo de aplicaciones web empresariales. Creación de sistemas de gestión y plataformas web con tecnología Microsoft.</p>
               <div class="tech-stack">
-                <span>C#</span><span>ASP.NET</span><span>SQL Server</span><span>Entity Framework</span><span>Web Forms</span><span>MVC</span>
+                <span>C#</span><span>Asp.net</span><span>Sql Server</span><span>Entity Framework</span><span>Web Forms</span><span>Mvc</span><span>Crud</span><span>Mysql Server</span>
               </div>
             </div>
           </div>
@@ -1758,6 +1780,9 @@
   </script>
 </body>
 </html>
+
+
+
 
 
 
