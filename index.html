@@ -81,6 +81,80 @@
       object-fit: contain;
     }
     
+    /* Welcome Overlay */
+    .welcome-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--card) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 4000;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    
+    .welcome-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .welcome-content {
+      text-align: center;
+      color: white;
+      max-width: 500px;
+      padding: 0 2rem 2rem 2rem;
+    }
+    
+    .welcome-logo {
+      margin-bottom: 0;
+    }
+    
+    .welcome-logo img {
+      width: 450px;
+      height: 450px;
+      object-fit: contain;
+    }
+    
+    .welcome-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      margin-top: -1rem;
+      color: var(--accent);
+      text-shadow: 0 0 20px rgba(88, 166, 255, 0.5);
+    }
+    
+    .welcome-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .welcome-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .welcome-btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(88, 166, 255, 0.4);
+    }
+    
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
@@ -670,6 +744,26 @@
     
     /* Móvil - 768px */
     @media (max-width: 768px) {
+      /* Welcome Overlay Mobile */
+      .welcome-logo img {
+        width: 250px;
+        height: 250px;
+      }
+      
+      .welcome-content h1 {
+        font-size: 1.8rem;
+        margin-top: -0.5rem;
+      }
+      
+      .welcome-content p {
+        font-size: 1rem;
+      }
+      
+      .welcome-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+      
       /* About */
       .about-content {
         flex-direction: column;
@@ -1245,6 +1339,20 @@
 </head>
 <body>
 
+  <!-- Welcome Overlay -->
+  <div id="welcomeOverlay" class="welcome-overlay">
+    <div class="welcome-content">
+      <div class="welcome-logo">
+        <img src="img/logo/Portada/Portada.png" alt="CodyNet A&B Logo">
+      </div>
+      <h1>Bienvenido a CodyNet A&B</h1>
+      <p>Tu socio tecnológico para soluciones innovadoras</p>
+      <button id="welcomeEnterBtn" class="welcome-btn">
+        <i class="fas fa-arrow-right"></i> Entrar al Sitio
+      </button>
+    </div>
+  </div>
+
   <header>
     <div class="container">
       <nav>
@@ -1782,6 +1890,19 @@
       } else if (e.key === 'ArrowRight') {
         showImage(currentIndex + 1);
       }
+    });
+    
+    // Welcome Overlay functionality
+    const welcomeOverlay = document.getElementById("welcomeOverlay");
+    const welcomeEnterBtn = document.getElementById("welcomeEnterBtn");
+
+    // Prevent scroll on body when welcome overlay is visible
+    document.body.style.overflow = "hidden";
+
+    // Hide welcome overlay and show main content
+    welcomeEnterBtn.addEventListener("click", () => {
+      welcomeOverlay.classList.add("hidden");
+      document.body.style.overflow = "";
     });
     
 </script>
